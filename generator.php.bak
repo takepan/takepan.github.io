@@ -1,0 +1,59 @@
+<?php
+$f = '/Users/takeuchishinji/work/ownly/OWNLY_production/cflog-img-ssapp-jp/pop.log';
+$c = file($f);
+$picts = [];
+$videos = [];
+$num = 0;
+foreach ($c as $n => $l) {
+    if ($num === 1000) exit;
+    list($cnt, $bytes, $url) = explode(' ', trim($l));
+    //printf("%4d %7d %15s %s\n", $n + 1 , $cnt, number_format($bytes), $url);
+    if ($url === '/') continue;
+    if ($url === '/wp') continue;
+    if ($url === '/wordpress') continue;
+    if ($url === '/old') continue;
+    if ($url === '/bk') continue;
+    if ($url === '/bc') continue;
+    if ($url === '/backup') continue;
+    if ($url === '/new') continue;
+    if ($url === '/home') continue;
+    if ($url === '/main') continue;
+    if ($url === '/favicon.ico') continue;
+    if (preg_match("/\.css/", $url)) continue;
+    if (preg_match("/\.js/", $url)) continue;
+    if (preg_match("/\.csv/", $url)) continue;
+    if (preg_match("/\.txt/", $url)) continue;
+    if (preg_match("/wfbpR1AAAF$/", $url)) continue;
+    if (preg_match("/AFCFuSzNovNObkYLAAAF$/", $url)) continue;
+    if (preg_match("/\/$/", $url)) continue;
+    $num++;
+    if (preg_match("/\.mp4$/", $url)) {
+        $videos[] = ['url' => $url];
+    } elseif (preg_match("/\.(jpe?g|gif|png|heic|webp)/i", $url)) {
+        $picts[] = ['url' => $url];    
+    } else {
+        //exit($url);
+        var_dump($url);
+        exit;
+    }
+}
+//var_dump($videos);
+//exit;
+
+// output-buffering開始
+ob_start();
+// テンプレート読込
+//var_dump(file_exists(dirname(__FILE__) . '/cloudflare.tpl'));
+//exit;
+
+include_once(dirname(__FILE__) . '/cloudflare.tpl');
+
+$strOutput = ob_get_clean();
+//echo $strOutput . PHP_EOL;
+//exit;
+
+$fp = fopen(dirname(__FILE__) . '/page.html', 'w+');
+fputs($fp, $strOutput);
+fclose($fp);
+echo "END\n";
+
