@@ -1,0 +1,927 @@
+Including template file...
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メディアギャラリー</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .media-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .media-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .media-item video {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            background-color: #000;  /* 動画読み込み中の背景色 */
+        }
+        h2 {
+            margin: 30px 0 20px;
+            color: #444;
+        }
+        .caption {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        /* スピナーのスタイル */
+        .video-loading {
+            position: relative;
+        }
+        .loading-indicator {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>メディアギャラリー</h1>
+        <h2>画像ギャラリー</h2>
+        <div class="gallery">
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23038/userdata/471638286_1730057477783014_1969048311056277699_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23038/userdata/471638286_1730057477783014_1969048311056277699_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23038/userdata/471658480_956870286310592_53151662273715034_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23038/userdata/471658480_956870286310592_53151662273715034_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23038/userdata/471464035_567591132731985_3868902383051670804_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23038/userdata/471464035_567591132731985_3868902383051670804_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470899608_1130555312079164_2840980077673330941_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470899608_1130555312079164_2840980077673330941_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470941149_898475352470638_8233185944261937097_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470941149_898475352470638_8233185944261937097_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470912116_1124378946008891_819538991588158254_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470912116_1124378946008891_819538991588158254_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470918260_3909829242563478_5347205597974832232_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470918260_3909829242563478_5347205597974832232_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470900909_600873905634062_3772431379456859878_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470900909_600873905634062_3772431379456859878_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470921911_1778159759624322_5510732128673885152_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470921911_1778159759624322_5510732128673885152_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/471248325_565094033093870_6277042049382157165_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/471248325_565094033093870_6277042049382157165_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470908038_919493396833420_8938303280365699897_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470908038_919493396833420_8938303280365699897_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470900602_1131716551649715_5366522976190134107_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470900602_1131716551649715_5366522976190134107_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/11/event/23041/userdata/470937614_922905926470609_4796938202521464120_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/11/event/23041/userdata/470937614_922905926470609_4796938202521464120_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32938/source/2024_676d24341f813.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32938/source/2024_676d24341f813.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32938/source/pizzalalogo_67651b693727e.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32938/source/pizzalalogo_67651b693727e.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/471811538_18474909823060824_1866907441566504334_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/471811538_18474909823060824_1866907441566504334_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32957/source/mv6_676cc429d77a7.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32957/source/mv6_676cc429d77a7.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/471822974_18474909685060824_4027957381593074252_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/471822974_18474909685060824_4027957381593074252_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/471822395_1168899941917396_8152554212891314786_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/471822395_1168899941917396_8152554212891314786_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32938/source/xcpn_676b99265300a.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32938/source/xcpn_676b99265300a.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32957/source/_676a222eb5218.png" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32957/source/_676a222eb5218.png</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/472099915_18476205526060824_4281698175550910702_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/472099915_18476205526060824_4281698175550910702_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32957/source/_676a7b97528f6.png" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32957/source/_676a7b97528f6.png</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/472003577_18475330996060824_7658681235790749931_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/472003577_18475330996060824_7658681235790749931_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/472145724_18475721689060824_6380611827115412746_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/472145724_18475721689060824_6380611827115412746_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/471599874_18474954457060824_5844115117931424502_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/471599874_18474954457060824_5844115117931424502_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/471817417_1167373835403340_4298171353535013243_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/471817417_1167373835403340_4298171353535013243_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/brand/250/brand_logo/logo_5c80a1f6db692.png" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/brand/250/brand_logo/logo_5c80a1f6db692.png</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/464235613_17972019056792435_388173657902811811_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/464235613_17972019056792435_388173657902811811_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/464072459_17972019965792435_9214155194977441200_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/464072459_17972019965792435_9214155194977441200_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/462119825_17969761430792435_5256079039037963944_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/462119825_17969761430792435_5256079039037963944_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/458496603_17965910846792435_243931131131266642_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/458496603_17965910846792435_243931131131266642_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/462086686_17969761643792435_4406200170693067299_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/462086686_17969761643792435_4406200170693067299_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/461485583_17968809680792435_2492629895128000023_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/461485583_17968809680792435_2492629895128000023_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32978/source/_676e188217bf4.png" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32978/source/_676e188217bf4.png</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/458356348_17965910492792435_4483866694419056127_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/458356348_17965910492792435_4483866694419056127_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2022/08/event/21404/userdata/457732087_17965145939792435_4080226421766690402_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2022/08/event/21404/userdata/457732087_17965145939792435_4080226421766690402_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/472407580_18476340304060824_8233835032919368381_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/472407580_18476340304060824_8233835032919368381_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32978/source/6581a6f350f58_676ce9dad0b3c.png" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32978/source/6581a6f350f58_676ce9dad0b3c.png</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10582/userdata/471525000_18474762886060824_7585577683324905243_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10582/userdata/471525000_18474762886060824_7585577683324905243_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/471292468_1097016448393973_2924100655600539675_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/471292468_1097016448393973_2924100655600539675_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/471356579_9748640115164561_8258672408556859109_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/471356579_9748640115164561_8258672408556859109_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/472017120_948356433388911_5418524252253493662_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/472017120_948356433388911_5418524252253493662_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/471320362_18253325941286075_5988077921683018329_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/471320362_18253325941286075_5988077921683018329_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/471715131_1156667799738261_3513318359726367961_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/471715131_1156667799738261_3513318359726367961_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/470910506_18353719972133861_8212055454234930384_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/470910506_18353719972133861_8212055454234930384_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/470897836_8780349158717936_7767129327109690488_n.heic" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/470897836_8780349158717936_7767129327109690488_n.heic</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/470956480_1131872361797069_8167231894362163530_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/470956480_1131872361797069_8167231894362163530_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/470478970_593176499785635_7268487278731172610_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/470478970_593176499785635_7268487278731172610_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/470493940_18373009036117750_3002488824746154314_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/470493940_18373009036117750_3002488824746154314_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/12/event/29300/userdata/470495772_921304556647348_3743162089229349114_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/12/event/29300/userdata/470495772_921304556647348_3743162089229349114_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/471900670_2338894129781465_2952625521986128680_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/471900670_2338894129781465_2952625521986128680_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/471595327_1065322998725184_2302833697260178294_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/471595327_1065322998725184_2302833697260178294_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/471573692_1574602119850699_7255503259776376667_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/471573692_1574602119850699_7255503259776376667_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/472177785_18297792331228725_2503977302958673896_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/472177785_18297792331228725_2503977302958673896_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/472337312_18297704713228725_2734889506056486643_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/472337312_18297704713228725_2734889506056486643_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/471907702_2394541444220109_7455739516947190545_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/471907702_2394541444220109_7455739516947190545_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/472432670_18297688198228725_5002574852221859666_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/472432670_18297688198228725_5002574852221859666_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/471919325_1322319118947694_7650538348603040617_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/471919325_1322319118947694_7650538348603040617_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2025/01/event/33006/source/_1_6777575dd654a.png" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2025/01/event/33006/source/_1_6777575dd654a.png</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2023/09/event/28390/userdata/471856936_1318009439389373_8109069957884414732_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2023/09/event/28390/userdata/471856936_1318009439389373_8109069957884414732_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/472475218_18297661288228725_692894635600488001_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/472475218_18297661288228725_692894635600488001_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/469124983_1186761963021388_3112993528232780959_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/469124983_1186761963021388_3112993528232780959_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/465561192_1692618094857021_5460399313095882132_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/465561192_1692618094857021_5460399313095882132_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2024/12/event/32938/source/2024_676d242c4e959.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2024/12/event/32938/source/2024_676d242c4e959.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10592/userdata/471695758_18324589294094071_3168848083221998612_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10592/userdata/471695758_18324589294094071_3168848083221998612_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10592/userdata/471870076_18324590245094071_4820142076757921444_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10592/userdata/471870076_18324590245094071_4820142076757921444_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10592/userdata/471678070_18324587623094071_638800682445604315_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10592/userdata/471678070_18324587623094071_638800682445604315_n.jpg</div>
+            </div>
+                        <div class="media-item">
+                <img src="https://img-upload.ssapp.jp/uploaded/2020/06/event/10592/userdata/471867671_18325179355094071_8708134942079895779_n.jpg" alt="ギャラリー画像" loading="lazy">
+                <div class="caption">/uploaded/2020/06/event/10592/userdata/471867671_18325179355094071_8708134942079895779_n.jpg</div>
+            </div>
+                    </div>
+        
+        <h2>動画ギャラリー</h2>
+        <div class="gallery">
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/C8409815866BBE10C7FFD647C25A5DBA_video_dashinit.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/C8409815866BBE10C7FFD647C25A5DBA_video_dashinit.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/224BF22C661AABAD24E95FACB1435BBF_video_dashinit.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/224BF22C661AABAD24E95FACB1435BBF_video_dashinit.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/12489AAE7DFB13A8163B45EB4600BFB5_video_dashinit.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/12489AAE7DFB13A8163B45EB4600BFB5_video_dashinit.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/2843FA3AA0B21CACF1420336C3F52290_video_dashinit.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/2843FA3AA0B21CACF1420336C3F52290_video_dashinit.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/237549909_323946529462002_873597704981287077_n.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/237549909_323946529462002_873597704981287077_n.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/CB40E18B805AF712280BAF0B34635A81_video_dashinit.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/CB40E18B805AF712280BAF0B34635A81_video_dashinit.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/236651337_2052549528238271_8814341326331655258_n.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/236651337_2052549528238271_8814341326331655258_n.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/A142D670826EBD478B438ECD82F83A97_video_dashinit.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/A142D670826EBD478B438ECD82F83A97_video_dashinit.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/42535389_614073610432288_4928223912127237755_n.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/42535389_614073610432288_4928223912127237755_n.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/236787046_384050999745648_657899034506555709_n.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/236787046_384050999745648_657899034506555709_n.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/10000000_127067373416401_957766221175783025_n.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/10000000_127067373416401_957766221175783025_n.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/B244BFDD199DA886C09E4833F07DFF9A_video_dashinit.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/B244BFDD199DA886C09E4833F07DFF9A_video_dashinit.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/236925518_4355303301159515_2712977022933495643_n.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/236925518_4355303301159515_2712977022933495643_n.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQMIMhqYkxosGaW7gBrr2_XNu_ikVUyiSAHHSnfgOHhzVOuiTM0y6tBeBCj7uspfEWXuO7jbe8I3SFU33ZBbxl3d.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQMIMhqYkxosGaW7gBrr2_XNu_ikVUyiSAHHSnfgOHhzVOuiTM0y6tBeBCj7uspfEWXuO7jbe8I3SFU33ZBbxl3d.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQOXMonDGJvbDH9UaGJ58Yz1eUtFzPdRaHHAvN35668mLg4sWqDexeO7FEP-LOvPEBFXkSP1LhYafLl2EwqCfunjIbnBq5bwHmCxQ4s.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQOXMonDGJvbDH9UaGJ58Yz1eUtFzPdRaHHAvN35668mLg4sWqDexeO7FEP-LOvPEBFXkSP1LhYafLl2EwqCfunjIbnBq5bwHmCxQ4s.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQP-YTs7SH33LE8YPm-Y94OIuy9O74SDEniKQpyuJikbgnkBMW-I-oY9tMdsLSakyyf8QwiDxjYMZJPQB-GiBGvKTdCfAJF2CybJ1TE.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQP-YTs7SH33LE8YPm-Y94OIuy9O74SDEniKQpyuJikbgnkBMW-I-oY9tMdsLSakyyf8QwiDxjYMZJPQB-GiBGvKTdCfAJF2CybJ1TE.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQN80saHTuhAANBzhkCaLsirrnms39g4-MfuTBUrZXjyakMOin37FhfpsVtxRvF4jALF24fpbHyHh6HvSadUf3EW.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQN80saHTuhAANBzhkCaLsirrnms39g4-MfuTBUrZXjyakMOin37FhfpsVtxRvF4jALF24fpbHyHh6HvSadUf3EW.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQNhwKE_ijGcA1nN-zumrgPsJTe0GenfyAKRrhluFfjPFLmj6iLZaFaxgEAayaaerHy9KHl8evfkX7ZqHxIjSk8u.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQNhwKE_ijGcA1nN-zumrgPsJTe0GenfyAKRrhluFfjPFLmj6iLZaFaxgEAayaaerHy9KHl8evfkX7ZqHxIjSk8u.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQP2gkDUJhZn-SsBqI_VbTb5mPKJcsAt8JCT0dB-9IClO76pzs3KhGTdsxhyuLSRX-eJ4Ah57Ne3bLB5M90ZZdxr.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQP2gkDUJhZn-SsBqI_VbTb5mPKJcsAt8JCT0dB-9IClO76pzs3KhGTdsxhyuLSRX-eJ4Ah57Ne3bLB5M90ZZdxr.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQNGJnFxhrABwCCciuClc8gQd0X8_aSxPgyc3EDwAyqPSwCUd-y6ml9Tdhgr7FGaszcaNfny_NiysZ6JvXJp2BGz.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQNGJnFxhrABwCCciuClc8gQd0X8_aSxPgyc3EDwAyqPSwCUd-y6ml9Tdhgr7FGaszcaNfny_NiysZ6JvXJp2BGz.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQNsLZ6g74bOiJfBsvR6rzqWTYczagLLmPZ-Fbq8R30dffK_5i5CSpjaBBg-c-wFZU9FeA0TRlUqrtR4BFJ0w5kLwasI2jrkqw_7vP8.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQNsLZ6g74bOiJfBsvR6rzqWTYczagLLmPZ-Fbq8R30dffK_5i5CSpjaBBg-c-wFZU9FeA0TRlUqrtR4BFJ0w5kLwasI2jrkqw_7vP8.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQOAT7d3X-mWPFbl7bG1lMXzOK-8PN5WznyV-RT8WAvGGuv9WV9xXp80vNFOZzupBcrDmvynG6KOjPmHTbLPj2BM.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQOAT7d3X-mWPFbl7bG1lMXzOK-8PN5WznyV-RT8WAvGGuv9WV9xXp80vNFOZzupBcrDmvynG6KOjPmHTbLPj2BM.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQOZniLpSV2kw6PigpMnAO02ytCMTRqbwMGriVQ9tbLAEbaE4M_LHsuzVdxCCGFi9-LpJq1Gqf5e8bpRYLikM-eb.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQOZniLpSV2kw6PigpMnAO02ytCMTRqbwMGriVQ9tbLAEbaE4M_LHsuzVdxCCGFi9-LpJq1Gqf5e8bpRYLikM-eb.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQMsHNXBMsiZhbY5JHU8qdbP_E1W7kWjNr8zMBj9OIJGnZbC1znCrOfTrMGR-ETjnBqEzp6CLDI1-p0Fh7Y_IyjS.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQMsHNXBMsiZhbY5JHU8qdbP_E1W7kWjNr8zMBj9OIJGnZbC1znCrOfTrMGR-ETjnBqEzp6CLDI1-p0Fh7Y_IyjS.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQNZESdi-sOVSAi6TaDJ5BQWLAEz9caBiR1IeHCqtS31ac6IE6MH2owXBwjZRcyJQBM_G84h1dfVKcNRH7tyHVeP.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQNZESdi-sOVSAi6TaDJ5BQWLAEz9caBiR1IeHCqtS31ac6IE6MH2owXBwjZRcyJQBM_G84h1dfVKcNRH7tyHVeP.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQPBOSurwLu8ZZIBXyjZd-7Xg90JDxI06Gjm8OPPNIWn57K-mFhryGPWszLbwgaBebqqoUQ1QfX2PR00pCaycUnR.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQPBOSurwLu8ZZIBXyjZd-7Xg90JDxI06Gjm8OPPNIWn57K-mFhryGPWszLbwgaBebqqoUQ1QfX2PR00pCaycUnR.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/10/event/12158/userdata/AQNG7WjiL0JL9_x8JbjZWWhbSFmVGyP8Ez3-i15f36LLjNOA5T3NjRgSvKbuCordfxYhgpJ82-18f7SnxCcxis05.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/10/event/12158/userdata/AQNG7WjiL0JL9_x8JbjZWWhbSFmVGyP8Ez3-i15f36LLjNOA5T3NjRgSvKbuCordfxYhgpJ82-18f7SnxCcxis05.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/09/event/11702/userdata/AQMCHZ_Sys0MHbrJKSuR4V5eko7apPvCAF938z9VB9Vuz9XxMDIg9tCcwjNIyj0hanWTt1-puZbchrG2fkAAyxbs.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/09/event/11702/userdata/AQMCHZ_Sys0MHbrJKSuR4V5eko7apPvCAF938z9VB9Vuz9XxMDIg9tCcwjNIyj0hanWTt1-puZbchrG2fkAAyxbs.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/09/event/11702/userdata/AQMpYP2RIybfPwlsJyKCfSPMaORHaVhwIH50baXpRjUvCSmdHR_P0Eqjzf6a2WMENyHN2e1ZC16evG8D_Hvmd1M1.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/09/event/11702/userdata/AQMpYP2RIybfPwlsJyKCfSPMaORHaVhwIH50baXpRjUvCSmdHR_P0Eqjzf6a2WMENyHN2e1ZC16evG8D_Hvmd1M1.mp4</div>
+            </div>
+                        <div class="media-item">
+                <div class="video-loading">
+                    <div class="loading-indicator"></div>
+                    <video 
+                        controls 
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        playsinline
+                        data-debug="true">
+                        <source data-src="https://img-upload.ssapp.jp/uploaded/2020/09/event/11702/userdata/AQObuy-bEZ2DGi6I63tfLFst5Nn-52qV8O_KLQ-cnbCA4MWyDBtWM0bnuNVvvPziPrSzTZIc-TAkDDDdyWmdMtRm.mp4" type="video/mp4">
+                        お使いのブラウザは動画再生に対応していません。
+                    </video>
+                </div>
+                <div class="caption">/uploaded/2020/09/event/11702/userdata/AQObuy-bEZ2DGi6I63tfLFst5Nn-52qV8O_KLQ-cnbCA4MWyDBtWM0bnuNVvvPziPrSzTZIc-TAkDDDdyWmdMtRm.mp4</div>
+            </div>
+                    </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded fired');
+    
+    const videos = document.querySelectorAll('video');
+    console.log('Found videos:', videos.length);
+
+    // ビデオの読み込み状態を追跡
+    const videoStates = new Map();
+
+    // ローディングインジケータの制御
+    function showLoading(video) {
+        const container = video.closest('.video-loading');
+        if (container) {
+            const indicator = container.querySelector('.loading-indicator');
+            if (indicator) indicator.style.display = 'block';
+        }
+    }
+
+    function hideLoading(video) {
+        const container = video.closest('.video-loading');
+        if (container) {
+            const indicator = container.querySelector('.loading-indicator');
+            if (indicator) indicator.style.display = 'none';
+        }
+    }
+
+function loadVideo(video, videoUrl) {
+    const source = video.querySelector('source');
+    if (!source) {
+        console.error('Source tag not found for video:', videoUrl);
+        return;
+    }
+
+    source.src = videoUrl;
+    video.load();
+
+    video.addEventListener('loadedmetadata', () => {
+        console.log('Metadata loaded:', videoUrl);
+        hideLoading(video);
+    });
+
+    video.addEventListener('error', (e) => {
+        console.error('Error loading video:', videoUrl, e);
+        hideLoading(video);
+    });
+}
+
+    // 最初の数個の動画を即時ロード
+    videos.forEach((video, index) => {
+        if (index < 3) {  // 最初の3つの動画
+            const source = video.querySelector('source');
+            const videoUrl = source?.dataset?.src;
+            if (videoUrl && !videoStates.has(videoUrl)) {
+                loadVideo(video, videoUrl);
+            }
+        }
+    });
+
+    // IntersectionObserver設定
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            const source = video.querySelector('source');
+            const videoUrl = source?.dataset?.src;
+
+            console.log('Intersection:', {
+                url: videoUrl,
+                isIntersecting: entry.isIntersecting,
+                isLoaded: videoStates.get(videoUrl)
+            });
+
+            if (entry.isIntersecting && videoUrl && !videoStates.get(videoUrl)) {
+                loadVideo(video, videoUrl);
+                observer.unobserve(video);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '100px 0px',  // 上下のマージンを増やす
+        threshold: 0  // しきい値を0に設定
+    });
+
+    // 残りの動画を監視
+    videos.forEach((video, index) => {
+        if (index >= 3) {  // 最初の3つ以外の動画
+            const source = video.querySelector('source');
+            const videoUrl = source?.dataset?.src;
+            
+            if (videoUrl && !videoStates.has(videoUrl)) {
+                videoStates.set(videoUrl, 'initial');
+                observer.observe(video);
+                console.log('Started observing:', videoUrl);
+            }
+        }
+    });
+});
+    </script>
+</body>
+</html>
